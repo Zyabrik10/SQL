@@ -6,9 +6,7 @@ select e.FirstName, e.LastName, (year(GETDATE()) - year(e.BirthDate)) as Age
 from Employees e
 where e.EmployeeID not in (
     select o.EmployeeID
-    from Employees e
-    join Orders o
-    on o.EmployeeID = e.EmployeeID
+    from Orders o
     where o.OrderDate = '1997-09-05'
 )
 
